@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.2.32408.312
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Artificial-Intelligence", "Artificial-Intelligence.csproj", "{0CD55A87-856A-437D-93D1-288C130B07B8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Artificial-Intelligence", "Artificial-Intelligence.csproj", "{0CD55A87-856A-437D-93D1-288C130B07B8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ArtificialIntelligence.DataStructures", "..\ArtificialIntelligence.DataStructures\ArtificialIntelligence.DataStructures.csproj", "{E38F64D7-291C-4E48-ADD3-3F72CF6B334C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{0CD55A87-856A-437D-93D1-288C130B07B8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0CD55A87-856A-437D-93D1-288C130B07B8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0CD55A87-856A-437D-93D1-288C130B07B8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E38F64D7-291C-4E48-ADD3-3F72CF6B334C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E38F64D7-291C-4E48-ADD3-3F72CF6B334C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E38F64D7-291C-4E48-ADD3-3F72CF6B334C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E38F64D7-291C-4E48-ADD3-3F72CF6B334C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

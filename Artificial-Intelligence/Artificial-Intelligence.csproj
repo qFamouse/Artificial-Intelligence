@@ -6,4 +6,8 @@
     <RootNamespace>Artificial_Intelligence</RootNamespace>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\ArtificialIntelligence.DataStructures\ArtificialIntelligence.DataStructures.csproj" />
+  </ItemGroup>
+
 </Project>

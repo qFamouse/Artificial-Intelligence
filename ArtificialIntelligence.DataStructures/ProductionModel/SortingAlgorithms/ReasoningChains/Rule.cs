@@ -1,19 +1,26 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace ArtificialIntelligence.DataStructures.ProductionModel.SortingAlgorithms.ReasoningChains
 {
-    public class Rule
+    public delegate void RequestPropertyByName(string nameofProperty);
+    public delegate void Act<T>(T knowledge, RequestPropertyByName requestPropertyByName);
+    public sealed class Rule<T>
     {
-        public delegate object MoreInfo(Type type);
-
-        public void Test(Knowledge knowledge, MoreInfo moreInfo)
+        private T Knowledge { get; set; }
+        private RequestPropertyByName RequestPropertyByName { get; set; }
+        private Act<T> Act { get; set; }
+        public Rule(T knowledge, RequestPropertyByName requestPropertyByName, Act<T> act)
         {
-            knowledge.DuplicateData = (DuplicateData) moreInfo(typeof(DuplicateData));
-            Console.WriteLine(knowledge.DuplicateData);
+            Knowledge = knowledge;
+            RequestPropertyByName = requestPropertyByName;
+            Act = act;
         }
+
+        public void Check() => Act(Knowledge, RequestPropertyByName);
     }
 }

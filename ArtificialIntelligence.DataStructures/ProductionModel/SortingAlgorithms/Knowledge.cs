@@ -50,17 +50,12 @@ namespace ArtificialIntelligence.DataStructures.ProductionModel.SortingAlgorithm
         Polyphase,
     }
 
-    public struct Knowledge
+    public class Knowledge
     {
-        //public DataSize DataSize { get; set; }
-
-        public DbSet<DataSize> DataSize { get; set; }
-
-        //public SortingType SortingType { get; set; }
-        public DbSet<SortingType> SortingType { get; set; }
-
+        public DataSize DataSize { get; set; }
+        public SortingType SortingType { get; set; }
         public MemoryUsed MemoryUsed { get; set; }
-        public NecessaryTime NecessaryTime { get; set; }
+        public NecessaryTime? NecessaryTime { get; set; }
         public bool Stability { get; set; }
         public ExecutionSpeed ExecutionSpeed { get; set; }
         public DuplicateData? DuplicateData { get; set; }

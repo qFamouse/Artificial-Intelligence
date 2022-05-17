@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ArtificialIntelligence.DataStructures.ProductionModel.SortingAlgorithms
+namespace Artificial_Intelligence.DataStructures.ProductionModel.SortingAlgorithms
 {
     public enum DataSize
     {
@@ -24,7 +24,7 @@ namespace ArtificialIntelligence.DataStructures.ProductionModel.SortingAlgorithm
     public enum NecessaryTime
     {
         Small, Many
-    }   
+    }
 
     public enum ExecutionSpeed
     {
@@ -52,12 +52,14 @@ namespace ArtificialIntelligence.DataStructures.ProductionModel.SortingAlgorithm
 
     public class Knowledge
     {
-        public DataSize DataSize { get; set; }
-        public SortingType SortingType { get; set; }
-        public MemoryUsed MemoryUsed { get; set; }
+        public DataSize? DataSize { get; set; }
+        public SortingType? SortingType { get; set; }
+        public MemoryUsed? MemoryUsed { get; set; }
         public NecessaryTime? NecessaryTime { get; set; }
-        public bool Stability { get; set; }
-        public ExecutionSpeed ExecutionSpeed { get; set; }
+        public bool? Stability { get; set; }
+        public ExecutionSpeed? ExecutionSpeed { get; set; }
         public DuplicateData? DuplicateData { get; set; }
+
+        public Sorting Result { get; set; }
     }
 }

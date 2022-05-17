@@ -5,7 +5,7 @@ using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ArtificialIntelligence.DataStructures.ProductionModel.SortingAlgorithms.ReasoningChains
+namespace ArtificialIntelligence.DataStructures.ProductionModel
 {
     public delegate void RequestPropertyByName(string nameofProperty);
     public delegate void Act<T>(T knowledge, RequestPropertyByName requestPropertyByName);

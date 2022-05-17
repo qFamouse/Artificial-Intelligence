@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 
-namespace ArtificialIntelligence.DataStructures.ProductionModel.SortingAlgorithms.ReasoningChains
+namespace ArtificialIntelligence.DataStructures.ProductionModel
 {
     public delegate void RequestProperty<T>(T knowledge, PropertyInfo propertyInfo);
     public sealed class RuleSet<T>

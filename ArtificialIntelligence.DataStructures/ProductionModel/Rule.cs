@@ -7,8 +7,8 @@ using System.Threading.Tasks;
 
 namespace ArtificialIntelligence.DataStructures.ProductionModel
 {
-    public delegate string RequestProperty<T>(T knowledge, PropertyInfo propertyInfo);
-    public delegate void Act<T>(T knowledge, RequestProperty<T> request);
+    public delegate void RequestProperty<T>(T knowledge, PropertyInfo propertyInfo);
+    public delegate bool Act<T>(T knowledge, RequestProperty<T> request);
     public sealed class Rule<T>
     {
         public bool IsSimple => Input.Length == 1;
@@ -44,8 +44,10 @@ namespace ArtificialIntelligence.DataStructures.ProductionModel
 
             if (nullFact is not null && trueFactsNumber == facts.Length - 1)
             {
-                nullFact.CurrentValue = request(knowledge, typeof(T).GetProperty(nullFact.PropertyName));
-                trueFactsNumber += nullFact.CurrentValue == nullFact.TrueValue ? 1 : 0;
+                PropertyInfo propertyInfo = typeof(T).GetProperty(nullFact.PropertyName);
+                request(knowledge, propertyInfo);
+                nullFact.CurrentValue = propertyInfo.GetValue(knowledge);
+                trueFactsNumber += Equals(nullFact.CurrentValue, nullFact.TrueValue) ? 1 : 0;
             }
 
             return trueFactsNumber == facts.Length ? true : false;

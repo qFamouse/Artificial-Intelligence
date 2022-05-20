@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Artificial_Intelligence.DataStructures.ProductionModel.SortingAlgorithms;
+using System;
 
 namespace Artificial_Intelligence
 {
@@ -6,7 +7,7 @@ namespace Artificial_Intelligence
     {
         static void Main(string[] args)
         {
-
+            SortingAlgorithms.Test();
         }
     }
 }

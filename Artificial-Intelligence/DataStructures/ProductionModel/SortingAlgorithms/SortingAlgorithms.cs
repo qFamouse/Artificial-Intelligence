@@ -336,49 +336,14 @@ namespace Artificial_Intelligence.DataStructures.ProductionModel.SortingAlgorith
 
             //Console.WriteLine($"Result: {ForwardChaining(knowledge)}");
 
+
+
             Knowledge knowledge = new Knowledge();
 
-            string desiredProperty = nameof(knowledge.NecessaryTime);
+            string desiredProperty = nameof(knowledge.Stability);
 
-            var rules = GetRules();
-            Stack<Rule<Knowledge>> ruleStack = new Stack<Rule<Knowledge>>();
-
-            PushDependencies(rules, ruleStack, desiredProperty);
-
-            ruleStack.TryPeek(out Rule<Knowledge> rule1);
-
-            foreach(var input in rule1.Input)
-            {
-                RequestProperty(knowledge, typeof(Knowledge).GetProperty(input));
-            }
-
-
-
-            while (ruleStack.TryPop(out Rule<Knowledge> rule))
-            {
-                rule.Act(knowledge, RequestProperty);
-            }
-
-            var c = 1;
-
+            Console.WriteLine($"Result: {ReverseChaining(knowledge, desiredProperty)}");
         }
-
-        public static void PushDependencies(List<Rule<Knowledge>> rules, Stack<Rule<Knowledge>> ruleStack, string desiredProperty)
-        {
-            Rule<Knowledge> desiredRule = rules.Find(r => r.Returns.Equals(desiredProperty));
-
-            if (desiredRule != null)
-            {
-                ruleStack.Push(desiredRule);
-                rules.Remove(desiredRule);
-
-                foreach (var input in desiredRule.Input)
-                {
-                    PushDependencies(rules, ruleStack, input);
-                }
-            }
-        }
-
 
         public static Sorting ForwardChaining(Knowledge knowledge)
         {
@@ -401,6 +366,44 @@ namespace Artificial_Intelligence.DataStructures.ProductionModel.SortingAlgorith
             return knowledge.Result;
         }
 
-        
+        public static void PushDependencies(List<Rule<Knowledge>> rules, Stack<Rule<Knowledge>> ruleStack, string desiredProperty)
+        {
+            Rule<Knowledge> desiredRule = rules.Find(r => r.Returns.Equals(desiredProperty));
+
+            if (desiredRule != null)
+            {
+                ruleStack.Push(desiredRule);
+                rules.Remove(desiredRule);
+
+                foreach (var input in desiredRule.Input)
+                {
+                    PushDependencies(rules, ruleStack, input);
+                }
+            }
+        }
+
+        public static string ReverseChaining(Knowledge knowledge, string desiredProperty)
+        {
+            var rules = GetRules();
+            Stack<Rule<Knowledge>> ruleStack = new Stack<Rule<Knowledge>>();
+
+            PushDependencies(rules, ruleStack, desiredProperty);
+
+            ruleStack.TryPeek(out Rule<Knowledge> lastRule);
+
+            foreach (var input in lastRule.Input)
+            {
+                RequestProperty(knowledge, typeof(Knowledge).GetProperty(input));
+            }
+
+            while (ruleStack.TryPop(out Rule<Knowledge> rule))
+            {
+                rule.Act(knowledge, RequestProperty);
+            }
+
+            var nessesaryProperty = typeof(Knowledge).GetProperty(desiredProperty).GetValue(knowledge);
+
+            return nessesaryProperty is null ? "Failed to get the property" : nessesaryProperty.ToString();
+        }
     }
 }

@@ -7,11 +7,13 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\ArtificialIntelligence.DataStructures\ArtificialIntelligence.DataStructures.csproj" />
+    <Compile Remove="DataStructures\ProductionModel\SortingAlgorithms\Entity\**" />
+    <EmbeddedResource Remove="DataStructures\ProductionModel\SortingAlgorithms\Entity\**" />
+    <None Remove="DataStructures\ProductionModel\SortingAlgorithms\Entity\**" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="DataStructures\ProductionModel\SortingAlgorithms\Entity\" />
+    <ProjectReference Include="..\ArtificialIntelligence.DataStructures\ArtificialIntelligence.DataStructures.csproj" />
   </ItemGroup>
 
 </Project>

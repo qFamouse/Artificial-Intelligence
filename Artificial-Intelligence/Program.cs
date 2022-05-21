@@ -1,4 +1,5 @@
 ﻿using Artificial_Intelligence.DataStructures.ProductionModel.SortingAlgorithms;
+using Artificial_Intelligence.DataStructures.SemanticModel.ComputerSecurity;
 using System;
 
 namespace Artificial_Intelligence
@@ -7,7 +8,7 @@ namespace Artificial_Intelligence
     {
         static void Main(string[] args)
         {
-            SortingAlgorithms.Test();
+            ComputerSecurity.Test();
         }
     }
 }

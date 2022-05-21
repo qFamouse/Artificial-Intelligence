@@ -405,5 +405,7 @@ namespace Artificial_Intelligence.DataStructures.ProductionModel.SortingAlgorith
 
             return nessesaryProperty is null ? "Failed to get the property" : nessesaryProperty.ToString();
         }
+
+        
     }
 }
